@@ -27,6 +27,9 @@ public class MathUtil {
         return binomial[N][K];
     }
 
+    /**
+     * Returns the value of C(N, K).
+     */
     public static BigDecimal binomial(BigDecimal N, int K) {
         int N_int = N.toBigInteger().intValue();
         BigDecimal[][] binomial = new BigDecimal[N_int + 1][K + 1];

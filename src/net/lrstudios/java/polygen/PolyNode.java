@@ -3,33 +3,30 @@ package net.lrstudios.java.polygen;
 import java.util.ArrayList;
 
 
-
 /**
- * Repr�sente un noeud servant au calcul du nombre de polygones internes composant un polygone.
+ * Represents a node, used to compute the total number of internal polygons contained in a regular polygon.
  */
-public class PolyNode
-{
-	private static int nextId = 1;
-	
-	public int id;
-	public ArrayList<ConnectedNodeData> connectedNodes = new ArrayList<ConnectedNodeData>();
-	double x;
-	double y;
-	
-	
-	// Constructeurs
-	public PolyNode(double x, double y)
-	{
-		this.id = nextId++;
-		this.x = x;
-		this.y = y;
-	}
-	public PolyNode()
-		{ this(0, 0); }
-	
-	@Override
-	public String toString()
-	{
-		return "PolyNode ID=" + id + " : [x=" + x + ", y=" + y + "]";
-	}
+public class PolyNode {
+    private static int nextId = 1;
+
+    public int id;
+    public ArrayList<ConnectedNodeData> connectedNodes = new ArrayList<ConnectedNodeData>();
+    public double x;
+    public double y;
+
+
+    public PolyNode(double x, double y) {
+        this.id = nextId++;
+        this.x = x;
+        this.y = y;
+    }
+
+    public PolyNode() {
+        this(0, 0);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("PolyNode ID=%d : [x=%s, y=%s]", id, x, y);
+    }
 }

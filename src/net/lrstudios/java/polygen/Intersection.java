@@ -4,43 +4,41 @@ import java.util.ArrayList;
 
 
 /**
- * Repr�sente une intersection de droites.
- * d1 et d2 sont facultatifs, ils peuvent repr�senter les num�ros des droites coup�es.
+ * Represents an intersection of two lines.
  */
-public class Intersection
-{
-	public double x;
-	public double y;
-	public ArrayList<Integer> listeDroites = new ArrayList<Integer>();
-	
-	
-	// Constructeurs
-	public Intersection(double x, double y, int d1, int d2)
-	{
-		this.x = x;
-		this.y = y;
-		listeDroites.add(d1);
-		listeDroites.add(d2);
-	}
-	
-	public Intersection() { this(0, 0, 0, 0); }
-	
-	
-	// Ajoute des droites � la liste de droites.
-	public void ajouteDroites(ArrayList<Integer> droites)
-	{
-		for (Integer droite : droites)
-		{
-			if (!listeDroites.contains(droite))
-				listeDroites.add(droite);
-		}
-	}
-	
-	/**
-	 * Teste si deux intersections ont les m�mes coordonn�es.
-	 */
-	public boolean equals(Intersection inter)
-	{
-		return (inter.x == this.x && inter.y == this.y);
-	}
+public class Intersection {
+    public double x;
+    public double y;
+    public ArrayList<Integer> mLineList = new ArrayList<Integer>();
+
+
+    /**
+     * (x, y) : the coordinates of the intersection<br>
+     * d1, d2 : the line IDs.
+     */
+    public Intersection(double x, double y, int d1, int d2) {
+        this.x = x;
+        this.y = y;
+        mLineList.add(d1);
+        mLineList.add(d2);
+    }
+
+    public Intersection() {
+        this(0, 0, 0, 0);
+    }
+
+
+    public void addLines(ArrayList<Integer> lines) {
+        for (Integer line : lines) {
+            if (!mLineList.contains(line))
+                mLineList.add(line);
+        }
+    }
+
+    /**
+     * Returns true if the specified intersection have the same coordinates.
+     */
+    public boolean equals(Intersection inter) {
+        return (inter.x == this.x && inter.y == this.y);
+    }
 }
